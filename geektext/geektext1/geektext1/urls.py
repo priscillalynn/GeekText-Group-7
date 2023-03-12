@@ -5,8 +5,10 @@ from EmployeeApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('departments/', views.department_list.as_view()),
-    path('department/<int:pk>/', views.department_individual.as_view()),
-    path('employees/', views.employee_list.as_view()),
-    path('employee/<int:pk>/', views.employee_individual.as_view()),
+    path('books/', views.book_list.as_view()),
+    path('book/<int:pk>/', views.book_individual.as_view()),
+    path('comments/', views.comment_list.as_view()),
+    path('comment/<int:pk>/', views.comment_individual.as_view()),
+    path('ratings/', views.rating_list.as_view()),
+    path('rating/<int:pk>/', views.rating_individual.as_view()),
 ]
