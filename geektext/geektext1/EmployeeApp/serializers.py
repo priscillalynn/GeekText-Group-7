@@ -1,12 +1,17 @@
 from rest_framework import serializers
-from .models import Department, Employees
+from .models import Book, Comments, Rating
 
-class DepartmentSerializer(serializers.ModelSerializer):
+class BookSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Department
-        fields = ('department_id', 'department_name', 'employee_count', 'manager')
+        model = Book
+        fields = ('title', 'author', 'description', 'published_date', 'isbn_number')
 
-class EmployeeSerializer(serializers.ModelSerializer):
+class CommentSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Employees
-        fields = ('employee_id', 'name', 'email', 'phone_number', 'job_title', 'department', 'joining_date')
+        model = Comments
+        fields = ('user', 'book', 'comment', 'created_at')
+
+class RatingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Rating
+        fields = ('user', 'book', 'rating', 'created_at')

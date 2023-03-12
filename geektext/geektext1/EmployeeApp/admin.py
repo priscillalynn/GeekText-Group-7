@@ -1,11 +1,15 @@
 from django.contrib import admin
-from .models import Employees, Department
+from .models import Book, Comments, Rating
 
-admin.site.register(Employees)
-admin.site.register(Department)
+admin.site.register(Book)
+admin.site.register(Comments)
+admin.site.register(Rating)
 
-class DepartmentAdmin(admin.ModelAdmin):
-    fields = ['name', 'employee_count', 'manager']
+class BookAdmin(admin.ModelAdmin):
+    fields = ('title', 'author', 'description', 'published_date', 'isbn_number')
 
-class EmployeeAdmin(admin.ModelAdmin):
-    fields = ('name', 'email', 'phone_number', 'job_title', 'department', 'joining_date')
+class CommentAdmin(admin.ModelAdmin):
+    fields = ('user', 'book', 'comment', 'created_at')
+
+class RatingAdmin(admin.ModelAdmin):
+    fields = ('user', 'book', 'rating', 'created_at')
