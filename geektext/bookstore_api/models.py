@@ -17,7 +17,8 @@ class User(AbstractUser):
 
 
 class CreditCard(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='credit_cards')
+    objects = None
+    name = models.CharField(max_length=255, null=True, blank=True)
     card_number = models.CharField(max_length=16)
     card_type = models.CharField(max_length=255)
     expiration_date = models.DateField()

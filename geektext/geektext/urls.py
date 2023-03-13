@@ -15,12 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from geektext import views
+from bookstore_api import views
+from bookstore_api.views import CreateUserView
+from bookstore_api.views import GetUserView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', views.UserList.as_view()),
     path('users/<int:pk>/', views.UserIndividual.as_view()),
-    path('creditcard/', views.CreditCard.as_view()),
+    path('creditcard/', views.CreditCardList.as_view()),
     path('creditcard/<int:pk>/', views.CreditCardIndividual.as_view()),
+    path('users/', CreateUserView.as_view(), name='create_user'),
+    path('users/<str:username>/', GetUserView.as_view()),
 ]
