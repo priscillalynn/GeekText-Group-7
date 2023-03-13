@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# adds shopping cart and rest_framework apps but i dont think i need corsheaders
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,12 +40,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    #'ShoppingCart.apps.ShoppingcartConfig',
     'ShoppingCart',
 ]
 
+# pretty sure this doesnt need to be here
 CORS_ORIGIN_ALLOW_ALL = True
+# adds a slash at the end of URLs when not included to avoid dumb request errors
 APPEND_SLASH = True
+# Sets authentication model as Users model from shopping cart app
+AUTH_USER_MODEL = 'ShoppingCart.Users'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
